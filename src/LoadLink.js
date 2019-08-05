@@ -5,7 +5,10 @@ import "./LoadLink.css";
 
 function LoadLink(props) {
   const callback = ((response) => {
-    window.location.replace(response.Link);
+    if(!response.Link.startsWith("http")) {
+      response.Link = "http://" + response.Link
+    }
+    window.location = response.Link;
   });
 
   useEffect(() => {

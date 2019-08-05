@@ -1,3 +1,61 @@
 .Main {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #D79922;
+}
+
+.Input {
+	display: flex;
+	flex-direction: row;
+	width: 50%;
+	height: 40px;
+}
+
+.Input > input {
+	width: 100%;
+	border-color: transparent;
+	background-color: rgba(239, 226, 186, 0.45);
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.Input > button {
+	border-color: transparent;
+	background-color: #EFE2BA;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.Link-Table {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.Link-Table > table {
+
+}
+
+.Link-Table-Headers {
+	text-align: center;
+	font-size: 1.3rem;
+}
+
+.Link-Table-Left {
+	text-align: left;
+}
+
+.Link-Table-Right {
+	text-align: right;
+}
+
+.Result {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

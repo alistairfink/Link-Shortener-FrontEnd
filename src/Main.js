@@ -17,7 +17,7 @@ function Main() {
   useEffect(() => {
     let restClient = new RestClient();
     restClient.GetLinks(linksCallback, 10);
-  }, [linksCallback]);
+  }, []);
 
   const inputChange = ((e) => {
     setInputLink(e.target.value);
@@ -42,31 +42,34 @@ function Main() {
 
   return (
     <div className="Main">
-      <input type="text" value={inputLink} onChange={inputChange} onKeyDown={createLinkEnter} />
-      <button onClick={() => createLink()}>Submit</button>
+      <h1>Shorten Links</h1>
+      <div className="Input">
+        <input type="text" value={inputLink} onChange={inputChange} onKeyDown={createLinkEnter} />
+        <button onClick={() => createLink()}>Submit</button>
+      </div>
       {loading &&
-        <div>
+        <div className="Result">
           <img src={LoadingSvg}/>
           <h3>Loading Link</h3>
         </div>
       }
       {createdLink != null &&
-        <div>
+        <div className="Result">
           <h3>Link Shortened</h3>
           <h4>{window.location.href + createdLink.Id}</h4>
         </div>
       }
-      <div>
+      <div className="Link-Table">
         <h3>Links</h3>
         <table>
-          <tr>
+          <tr className="Link-Table-Headers">
             <td>Shortened Url</td>
             <td>Link</td>
           </tr>
           {links.map((item) => 
             <tr>
-              <td>{window.location.href + item.Id}</td>
-              <td>{item.Link}</td>
+              <td className="Link-Table-Left">{window.location.href + item.Id}</td>
+              <td className="Link-Table-Right">{item.Link}</td>
             </tr>
           )}
         </table>
