@@ -21,6 +21,14 @@ class RestClient {
 			callback(responseJson);
 		});
 	}
+
+	GetLinks(callback, filter) {
+		fetch(Config.ApiEndPointRoot + "?top=" + filter)
+		.then((response) => response.json())
+		.then((responseJson) => {
+			callback(responseJson);
+		});
+	}
 }
 
 export default RestClient;

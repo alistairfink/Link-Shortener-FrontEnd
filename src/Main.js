@@ -11,12 +11,12 @@ function Main() {
   const [links, setLinks] = useState([]);
 
   const linksCallback = ((response) => {
-
+    setLinks(response);
   });
 
   useEffect(() => {
     let restClient = new RestClient();
-    // restClient.GetLink(linksCallback, props.match.params.id);
+    restClient.GetLinks(linksCallback, 10);
   }, [linksCallback]);
 
   const inputChange = ((e) => {
@@ -56,6 +56,21 @@ function Main() {
           <h4>{window.location.href + createdLink.Id}</h4>
         </div>
       }
+      <div>
+        <h3>Links</h3>
+        <table>
+          <tr>
+            <td>Shortened Url</td>
+            <td>Link</td>
+          </tr>
+          {links.map((item) => 
+            <tr>
+              <td>{window.location.href + item.Id}</td>
+              <td>{item.Link}</td>
+            </tr>
+          )}
+        </table>
+      </div>
     </div>
   );
 }
