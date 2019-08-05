@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import logo from './logo.svg';
-import RestClient from "./RestClient.js";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from "./Main.js";
 import LoadLink from "./LoadLink.js";
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logo from './logo.svg';
 import './Main.css';
 import RestClient from "./RestClient.js";
 import LoadingSvg from "./loading.svg";
@@ -35,7 +34,7 @@ function Main() {
   });
 
   const createLinkEnter = ((e) => {
-    if(e.keyCode == 13) {
+    if(e.keyCode === 13) {
       createLink();
     }
   });
@@ -49,7 +48,7 @@ function Main() {
       </div>
       {loading &&
         <div className="Result">
-          <img src={LoadingSvg}/>
+          <img src={LoadingSvg} alt="loading"/>
           <h3>Loading Link</h3>
         </div>
       }
