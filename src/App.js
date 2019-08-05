@@ -1,42 +1,18 @@
 import React, { useState } from "react";
 import logo from './logo.svg';
-import './App.css';
 import RestClient from "./RestClient.js";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Main from "./Main.js";
+import LoadLink from "./LoadLink.js";
 
 function App() {
-  const [inputLink, setInputLink] = useState("");
-  const [createdLink, setCreatedLink] = useState(null);
-
-  const inputChange = ((e) => {
-    setInputLink(e.target.value);
-  });
-
-  const createLink = (() => {
-    let restClient = new RestClient();
-    restClient.CreateLink(createLinkCallback, inputLink);
-  }); 
-
-  const createLinkCallback = ((response) => {
-    setCreatedLink(response);
-  });
-
-  const createLinkEnter = ((e) => {
-    if(e.keyCode == 13) {
-      createLink();
-    }
-  });
-
   return (
-    <div className="App">
-      <input type="text" value={inputLink} onChange={inputChange} onKeyDown={createLinkEnter} />
-      <button onClick={() => createLink()}>Submit</button>
-      {createdLink != null &&
-        <div>
-          <h3>Link Shortened</h3>
-          <h4>{window.location.href + createdLink.Id}</h4>
-        </div>
-      }
-    </div>
+    <Router>
+      <div>
+        <Route exact path="/" component={Main} />
+        <Route exact path="/:id" component={LoadLink} />
+      </div>
+    </Router>
   );
 }
 
