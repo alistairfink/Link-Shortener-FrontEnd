@@ -1,3 +1,3 @@
 module.exports = {
-	ApiEndPointRoot: "http://localhost:41695/link"
+	ApiEndPointRoot: "https://tools.alistairfink.com/link-api/link"
 }
