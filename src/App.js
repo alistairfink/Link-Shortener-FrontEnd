@@ -5,7 +5,7 @@ import LoadLink from "./LoadLink.js";
 
 function App() {
   return (
-    <Router>
+    <Router basename={"/link"}>
       <div>
         <Route exact path="/" component={Main} />
         <Route exact path="/:id" component={LoadLink} />
